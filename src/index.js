@@ -36,12 +36,12 @@ var dataIN = [
                     {
                         id: 1,
                         food: "Postre",
-                        members: ["xd"],
+                        members: ["Postre A"],
                     },
                     {
                         id: 1,
                         food: "Guarnición",
-                        members: ["A"],
+                        members: ["Arroz"],
                     },
                 ],
                 turn: "Desayuno",
@@ -78,12 +78,12 @@ var dataIN = [
                     {
                         id: 1,
                         food: "Postre",
-                        members: ["xd"],
+                        members: ["Postre B"],
                     },
                     {
                         id: 1,
                         food: "Guarnición",
-                        members: ["A"],
+                        members: ["Guarnición A"],
                     },
                 ],
                 turn: "Desayuno",
@@ -113,21 +113,22 @@ var dataIN = [
     },
 ];
 
-//
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-    <div>
-        <table >
-        <thead>
-            <tr>
-                <HeaderComp datos={dataOUT.turnsOfDay} />
-            </tr>
-        </thead> 
-        <tbody>
-        <RowComponent data = {dataIN.find(item => item.day === "Lunes")} />
-        <RowComponent data = {dataIN.find(item => item.day === "Martes")} />
-        </tbody>
-    </table>
+    <div className="container">
+        <div className="col-12 text-center justify-content-center d-flex">
+            <table className="table table-bordered">
+            <thead>
+                <tr>
+                    <HeaderComp datos={dataOUT.turnsOfDay} />
+                </tr>
+            </thead> 
+            <tbody>
+            <RowComponent data = {dataIN.find(item => item.day === "Lunes")} />
+            <RowComponent data = {dataIN.find(item => item.day === "Martes")} />
+            </tbody>
+        </table>
+        </div>
     </div>
 );

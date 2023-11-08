@@ -8,7 +8,7 @@ function TurnRow(props,turno){
   
   props.data.food_time.forEach((item, index) => { 
     if (firstStrike) {
-      rows.push(<td rowSpan={2}>{day}</td>);
+      rows.push(<td className="dayLabel p-2" rowSpan={2}>{day}</td>);
       rows.push(<td>{item.turnEspecification.find(item => item.food === turno).members}</td>);
       firstStrike = false;
     }else{
@@ -23,7 +23,6 @@ function TurnRow(props,turno){
     </tr>
   );
 }
-
 
 function RowComponent(props) {
   var lines =[];
