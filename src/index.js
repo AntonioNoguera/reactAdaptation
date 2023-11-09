@@ -28,165 +28,147 @@ var dataOUT = {
 
 var dataIN = [
     {
-        id: 1,
-        day: "Lunes",
-        food_time: [
+        "turnoSemanal": [
             {
-                turnEspecification: [
+                "id": 1,
+                "day": "Lunes",
+                "food_time": [
                     {
-                        id: 1,
-                        food: "Postre",
-                        members: ["Postre A"],
+                        "turnEspecification": [
+                            {
+                                "id": 1,
+                                "food": "Postre",
+                                "members": [
+                                    {
+                                        "name": "Tacos e" 
+                                    },
+                                    {
+                                        "name": "Tacos e" 
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 1,
+                                "food": "Guranición",
+                                "members": [
+                                    {
+                                        "name": "Tacos e" 
+                                    },
+                                    {
+                                        "name": "Tacos e" 
+                                    }
+                                ]
+                            }
+                        ],
+                        "turn": "Desayuno"
                     },
                     {
-                        id: 1,
-                        food: "Guarnición",
-                        members: ["Arroz"],
-                    },
-                    {
-                        id: 1,
-                        food: "Cena",
-                        members: ["Arroz"],
-                    },
-                    
-                ],
-                turn: "Desayuno",
+                        "turnEspecification": [
+                            {
+                                "id": 1,
+                                "food": "Postre",
+                                "members": [
+                                    {
+                                        "name": "Tacos e" 
+                                    },
+                                    {
+                                        "name": "Tacos e" 
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 1,
+                                "food": "Guranición",
+                                "members": [
+                                    {
+                                        "name": "Tacos e" 
+                                    },
+                                    {
+                                        "name": "Tacos e" 
+                                    }
+                                ]
+                            }
+                        ],
+                        "turn": "Comida"
+                    }
+                ]
             },
             {
-                turnEspecification: [
+                "id": 1,
+                "day": "Martes",
+                "food_time": [
                     {
-                        id: 1,
-                        food: "Postre",
-                        members: [
-                            "Pay de Limón",
-                            "Flan"
+                        "turnEspecification": [
+                            {
+                                "id": 1,
+                                "food": "Postre",
+                                "members": [
+                                    {
+                                        "name": "Tacos e" 
+                                    },
+                                    {
+                                        "name": "Tacos e" 
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 1,
+                                "food": "Guranición",
+                                "members": [
+                                    {
+                                        "name": "Tacos e"
+                                    },
+                                    {
+                                        "name": "Tacos e" 
+                                    }
+                                ]
+                            }
                         ],
+                        "turn": "Desayuno"
                     },
                     {
-                        id: 1,
-                        food: "Guarnición",
-                        members: [
-                            "Arrocito",
-                            "Frijolitos"
+                        "turnEspecification": [
+                            {
+                                "id": 1,
+                                "food": "Postre",
+                                "members": [
+                                    {
+                                        "name": "Tacos e" 
+                                    },
+                                    {
+                                        "name": "Tacos e" 
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 1,
+                                "food": "Guranición",
+                                "members": [
+                                    {
+                                        "name": "Tacos e", 
+                                    },
+                                    {
+                                        "name": "Tacos e", 
+                                    }
+                                ]
+                            }
                         ],
-                    },
-                    {
-                        id: 1,
-                        food: "Cena",
-                        members: ["Arroz"],
-                    },
-                ],
-                turn: "Comida",
-            },
+                        "turn": "Comida"
+                    }
+                ]
+            }
         ],
-    },
-    {
-        id: 1,
-        day: "Martes",
-        food_time: [
-            {
-                turnEspecification: [
-                    {
-                        id: 1,
-                        food: "Postre",
-                        members: ["Postre B"],
-                    },
-                    {
-                        id: 1,
-                        food: "Guarnición",
-                        members: ["Guarnición A"],
-                    },
-                    {
-                        id: 1,
-                        food: "Cena",
-                        members: ["Arroz"],
-                    },
-                ],
-                turn: "Desayuno",
-            },
-            {
-                turnEspecification: [
-                    {
-                        id: 1,
-                        food: "Postre",
-                        members: [
-                            "Pay de Limón",
-                            "Flan"
-                        ],
-                    },
-                    {
-                        id: 1,
-                        food: "Guarnición",
-                        members: [
-                            "Arrocito",
-                            "Frijolitos"
-                        ],
-                    },
-                    {
-                        id: 1,
-                        food: "Cena",
-                        members: ["Arroz"],
-                    },
-                ],
-                turn: "Comida",
-            },
-        ],
-    },
-    {
-        id: 1,
-        day: "Martes",
-        food_time: [
-            {
-                turnEspecification: [
-                    {
-                        id: 1,
-                        food: "Postre",
-                        members: ["Postre B"],
-                    },
-                    {
-                        id: 1,
-                        food: "Guarnición",
-                        members: ["Guarnición A"],
-                    },
-                    {
-                        id: 1,
-                        food: "Cena",
-                        members: ["Arroz"],
-                    },
-                ],
-                turn: "Desayuno",
-            },
-            {
-                turnEspecification: [
-                    {
-                        id: 1,
-                        food: "Postre",
-                        members: [
-                            "Pay de Limón",
-                            "Flan"
-                        ],
-                    },
-                    {
-                        id: 1,
-                        food: "Guarnición",
-                        members: [
-                            "Arrocito",
-                            "Frijolitos"
-                        ],
-                    },
-                    {
-                        id: 1,
-                        food: "Cena",
-                        members: ["Arroz"],
-                    },
-                ],
-                turn: "Comida",
-            },
-        ],
-    },
+        "meanGrade": 100.21,
+        "periodo_Semanal": "2023-11-09",
+        "calificacion_Prom": 12.21
+    }
 ];
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+function settingValues(){
+    document.getElementById().innerHTML=;
+}
 
 
 root.render( 
