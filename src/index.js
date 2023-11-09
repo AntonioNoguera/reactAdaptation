@@ -189,9 +189,8 @@ var dataIN = [
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 
-root.render(
-    <div className="container">
-        <div className="col-12 text-center justify-content-center d-flex">
+root.render( 
+        <>
             <table className="table">
                 <thead className="estilo">
                     <tr className="estilo">
@@ -205,6 +204,5 @@ root.render(
                     ))} 
                 </tbody>
             </table>
-        </div>
-    </div>
+        </> 
 );
