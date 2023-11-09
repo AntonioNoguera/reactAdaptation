@@ -5,7 +5,7 @@ import RowComponent from "./RowComponent";
 
 var dataOUT = {
     nameServiceDays: ["Lunes", "Martes", "Miercoles"],
-    turnsOfDay: [" ","Desayuno", "Comida"],
+    turnsOfDay: [" ", "Desayuno", "Comida"],
     turnFormat: [
         {
             id: 4,
@@ -43,6 +43,12 @@ var dataIN = [
                         food: "Guarnición",
                         members: ["Arroz"],
                     },
+                    {
+                        id: 1,
+                        food: "Cena",
+                        members: ["Arroz"],
+                    },
+                    
                 ],
                 turn: "Desayuno",
             },
@@ -63,6 +69,11 @@ var dataIN = [
                             "Arrocito",
                             "Frijolitos"
                         ],
+                    },
+                    {
+                        id: 1,
+                        food: "Cena",
+                        members: ["Arroz"],
                     },
                 ],
                 turn: "Comida",
@@ -85,6 +96,11 @@ var dataIN = [
                         food: "Guarnición",
                         members: ["Guarnición A"],
                     },
+                    {
+                        id: 1,
+                        food: "Cena",
+                        members: ["Arroz"],
+                    },
                 ],
                 turn: "Desayuno",
             },
@@ -106,6 +122,63 @@ var dataIN = [
                             "Frijolitos"
                         ],
                     },
+                    {
+                        id: 1,
+                        food: "Cena",
+                        members: ["Arroz"],
+                    },
+                ],
+                turn: "Comida",
+            },
+        ],
+    },
+    {
+        id: 1,
+        day: "Martes",
+        food_time: [
+            {
+                turnEspecification: [
+                    {
+                        id: 1,
+                        food: "Postre",
+                        members: ["Postre B"],
+                    },
+                    {
+                        id: 1,
+                        food: "Guarnición",
+                        members: ["Guarnición A"],
+                    },
+                    {
+                        id: 1,
+                        food: "Cena",
+                        members: ["Arroz"],
+                    },
+                ],
+                turn: "Desayuno",
+            },
+            {
+                turnEspecification: [
+                    {
+                        id: 1,
+                        food: "Postre",
+                        members: [
+                            "Pay de Limón",
+                            "Flan"
+                        ],
+                    },
+                    {
+                        id: 1,
+                        food: "Guarnición",
+                        members: [
+                            "Arrocito",
+                            "Frijolitos"
+                        ],
+                    },
+                    {
+                        id: 1,
+                        food: "Cena",
+                        members: ["Arroz"],
+                    },
                 ],
                 turn: "Comida",
             },
@@ -115,20 +188,23 @@ var dataIN = [
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+
 root.render(
     <div className="container">
         <div className="col-12 text-center justify-content-center d-flex">
-            <table className="table table-bordered">
-            <thead>
-                <tr>
-                    <HeaderComp datos={dataOUT.turnsOfDay} />
-                </tr>
-            </thead> 
-            <tbody>
-            <RowComponent data = {dataIN.find(item => item.day === "Lunes")} />
-            <RowComponent data = {dataIN.find(item => item.day === "Martes")} />
-            </tbody>
-        </table>
+            <table className="table">
+                <thead className="estilo">
+                    <tr className="estilo">
+                        <HeaderComp datos={dataOUT.turnsOfDay} />
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {dataIN.map((day) => (
+                        <RowComponent data={day} />
+                    ))} 
+                </tbody>
+            </table>
         </div>
     </div>
 );

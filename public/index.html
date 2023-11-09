@@ -1,154 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <meta name="description" content="Web site created using create-react-app" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-      *{
-          font-family: 'Jost', sans-serif;
-      }
+        * {
+            font-family: 'Jost', sans-serif;
+        }
 
-      .tbGray td,.tbGray{
-          background-color: #D9D9D9 !important;  
-      }
+        .table th,.table  td{
+            border-top: none; 
+        }
 
-      .tbA{
-          background-color: #B9FFFF !important;
-          border-color: #B9FFFF !important;
-      }
+        .tbGray td,
+        .tbGray {
+            background-color: #D9D9D9 !important;
+        }
 
-      .tbB td,.tbB{
-          background-color: #81C9FA !important;
-          border-color: #81C9FA !important;
-      } 
+        td {
+            vertical-align: bottom;
+            text-align: center;
+            text-align: center;
+            position: relative !important;
+        }
 
-      .tbC td,.tbC{
-          background-color: #2196F3 !important;
-          border-color: #2196F3 !important;
-      }
+        .dayLabel {
+            font-size: 1.5em;
+            width: 20px; 
+            -ms-writing-mode: tb-rl;
+            -webkit-writing-mode: vertical-rl;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+        }
 
-      .tbD td,.tbD{
-          background-color: #1465BB !important;
-          border-color: #1465BB !important;
-      }
+        .botonVolver {
+            transform: rotate(180deg);
+            position: absolute;
+            fill: gray;
+            right: 2%;
+            cursor: pointer;
+            transition: transform .5s;
+        }
 
-      .tbE td,.tbE{
-          background-color: #0057AD !important;
-          border-color: #0057AD !important;
-      }
+        .botonVolver:hover {
+            transform: rotate(360deg);
+            fill: black;
+            right: 2%;
+        }
+ 
+        .dia0,.dia1,.dia2,.dia3,.dia4,.dia5{
+            border-width: 0px !important;
+        }
+        .dia1 {
+            background-color: #FFFFA2 !important; 
+        }
 
-      .tbF td,.tbF{
-          background-color: #0057AD !important;
-          border-color: #0057AD !important;
-      }
+        .dia2 {
+            background-color: #E3EC72 !important; 
+        }
 
+        .dia3 {
+            background-color: #BFBF00 !important; 
+        }
 
+        .dia4 {
+            background-color: #a3ac23 !important; 
+        }
 
-      td {
-          vertical-align: bottom;
-          text-align: center;
-          text-align: center; 
-          position:relative !important;
-      }
+        .dia5 {
+            background-color: #899307 !important; 
+        }
 
-      .dayLabel {
-          font-size: 1.5em;
-          height: 20%;
-          -ms-writing-mode: tb-rl;
-          -webkit-writing-mode: vertical-rl;
-          writing-mode: vertical-rl;
-          transform: rotate(180deg);    
-      }
+        .btn-continue,
+        .btn-continue:hover:active {
+            background-color: #198754 !important;
+            color: white !important;
+            border: none !important;
+        }
 
-      .botonVolver{ 
-          transform: rotate(180deg);   
-          position: absolute;
-          fill: gray;
-          right: 2%;
-          cursor: pointer;
-          transition:transform .5s ;
-      }
-      .botonVolver:hover{ 
-          transform: rotate(360deg);   
-          fill: black;
-          right: 2%;
-      }
-      
-      .diaA{
-          background-color: #FFFFA2 !important;
-      }
+        .btn-continue:hover {
+            background-color: #a4e6c7 !important;
+            color: rgb(6, 97, 9) !important;
+        }
 
-      .diaB{
-          background-color: #E3EC72 !important;
-      }
+        .btn-abort,
+        .btn-abort:hover:active {
+            background-color: #d14545 !important;
+            color: white !important;
+            border: none !important;
+        }
 
-      .diaC{
-          background-color: #BFBF00 !important;
-      }
+        .btn-abort:hover {
+            background-color: #fbafaf !important;
+            color: #4e0d0d !important;
+        }
 
+        .btnWeekR,
+        .btnWeekL,
+        .btnWeekL:hover:active,
+        .btnWeekR:hover:active {
+            font-size: 2.5em;
+            background: none;
+            border: none;
+            color: gray;
+        }
 
-      .btn-continue,.btn-continue:hover:active{
-          background-color: #198754 !important;
-          color:white !important;
-          border: none !important;
-      } 
-      
-      .btn-continue:hover{
-          background-color: #a4e6c7 !important;
-          color:rgb(6, 97, 9) !important;
-      }
+        .btnWeekR {
+            right: 20%;
+            transition: right .3s;
+        }
 
-      .btn-abort,.btn-abort:hover:active{
-          background-color: #d14545 !important;
-          color:white !important;
-          border: none !important;
-      }
+        .btnWeekL {
+            left: 20%;
+            transition: left .3s;
+        }
 
-      .btn-abort:hover{
-          background-color: #fbafaf !important;
-          color:#4e0d0d !important;
-      }
+        .btnWeekR:hover {
+            color: black;
+            right: 15%;
+        }
 
-      .btnWeekR,.btnWeekL,.btnWeekL:hover:active,.btnWeekR:hover:active{
-          font-size: 2.5em;
-          background: none; 
-          border: none;
-          color: gray; 
-      }
-      .btnWeekR{  
-          right: 20%;
-          transition:right .3s;
-      } 
+        .btnWeekL:hover {
+            color: black;
+            left: 15%;
+        } 
+        .estilo{ 
+            border-width: 0px !important; 
+        }
 
-      .btnWeekL{  
-          left: 20%;
-          transition:left .3s;
-      } 
+        .columnDay1{ 
+            border-width: 0px !important; 
+        }
 
-      .btnWeekR:hover{ 
-          color: black;
-          right: 15%;
-      } 
+        .columnDay1 {
+            background-color: #B9FFFF !important;
+            border-color: #B9FFFF !important;
+        }
 
-      .btnWeekL:hover{ 
-          color: black;
-          left: 15%;
-      }
+        .columnDay2 td,
+        .columnDay2 {
+            
+            background-color: #81C9FA !important;
+            border-color: #81C9FA !important;
+        }
 
+        .columnDay3 td,
+        .columnDay3 {
+            background-color: #2196F3 !important;
+            border-color: #2196F3 !important;
+        }
+
+        .columnDay4 td,
+        .columnDay4 {
+            background-color: #1465BB !important;
+            border-color: #1465BB !important;
+        }
+
+        .columnDay5 td,
+        .columnDay5 {
+            background-color: #0057AD !important;
+            border-color: #0057AD !important;
+        }
+
+        .columnDay6 td,
+        .columnDay6 {
+            background-color: #0057AD !important;
+            
+            border-color: #0057AD !important;
+        }
+
+        td{ 
+            padding:8px 0px 8px 0px !important;
+            border:2px solid #A1A1A1 ;
+            border-width: 0px 1px 1px 0px;
+        }
+
+        .lastRow{
+            border-bottom: 1.95px solid black;
+        }
+        
     </style>
     <title>React App</title>
-  </head>
-  <body>
-    <div id="root"></div> 
-  </body>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
 </html>
