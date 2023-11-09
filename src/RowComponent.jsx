@@ -1,11 +1,8 @@
 import React from "react";
 
 var firstStrike=true;
-var day="Default";
-var alternator=0;
-var globalColor=1;
-
-const asd ="";
+var day="Default"; 
+var globalColor=1; 
 
 function TurnRow(props,turno,rowClass){
   var rows = []; 
@@ -27,7 +24,10 @@ function TurnRow(props,turno,rowClass){
       rows.push(<td className={`dayLabel p-2 align-middle columnDay${globalColor}`} rowSpan={item.turnEspecification.length}>{day}</td>);
       rows.push( 
           <td className={`align-middle ${rowClass}`}>{
-            item.turnEspecification.find(item => item.food === turno).members}
+            item.turnEspecification.find(item => item.food === turno).members.map(member => (
+              <span>{member.name}</span>
+            ))
+          }
             <span id={`${index},${index}`} className={`botonVolver`} onClick={() => handleSVGClick(`${props.data.day}-${turno}-${index}`)}>{svgPath}</span>
           </td> 
       );
@@ -36,7 +36,10 @@ function TurnRow(props,turno,rowClass){
       firstStrike = false;
     }else{
       rows.push(<td className={`align-middle ${rowClass}`}>{
-        item.turnEspecification.find(item => item.food === turno).members}
+        item.turnEspecification.find(item => item.food === turno).members.map(member => (
+          <span>{member.name}</span>
+        ))
+      }
         <span id={`${index},${index}`} className={`botonVolver`} onClick={() => handleSVGClick(`${props.data.day}-${turno}-${index}`)}>{svgPath}</span>
       </td>);
     }

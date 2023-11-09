@@ -1,29 +1,25 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from 'react-dom/client'; // Importa ReactDOM de la manera estándar
 import HeaderComp from "./HeaderComponent";
 import RowComponent from "./RowComponent";
 
 var dataOUT = {
-    nameServiceDays: ["Lunes", "Martes", "Miercoles"],
-    turnsOfDay: [" ", "Desayuno", "Comida"],
-    turnFormat: [
-        {
-            id: 4,
-            name: "Postre",
-            recurrence: "0",
-        },
-        {
-            id: 5,
-            name: "Testing",
-            recurrence: "2",
-        },
-        {
-            id: 6,
-            name: "Guarnición B",
-            recurrence: "1",
-        },
-    ],
-    booleanTemp: true,
+  booleanTemp: true,
+  nameServiceDays: ["Lunes", "Martes"],
+  turnFormat: [
+    {
+      id: 4,
+      name: "Postre",
+      recurrence: 2,
+    },
+    {
+      id: 5,
+      name: "Guranición",
+      recurrence: 2,
+    },
+  ],
+  //NO OLVIDAR AÑADIR ESTE ESPACIO VACIO, PUEDE SER EN EL COMPO, O EN EL ARRAY, NO OLVIDAR
+  turnsOfDay: ["","Desayuno", "Comida"],
 };
 
 var dataIN = [
@@ -160,31 +156,47 @@ var dataIN = [
         ],
         "meanGrade": 100.21,
         "periodo_Semanal": "2023-11-09",
-        "calificacion_Prom": 12.21
+        "calificacion_Prom": 12.21,
+        "week_ID":1
     }
 ];
 
+var actualWeekId;
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-function settingValues(){
-    document.getElementById().innerHTML=;
+var turnoSemanalSel; 
+
+function preStartFunction(actualW=1){ 
+    actualWeekId=actualW;
+    const foundObject = dataIN.find(item => item.week_ID === actualWeekId);
+
+    if (foundObject) { 
+    turnoSemanalSel = foundObject.turnoSemanal;
+    console.log(turnoSemanalSel); 
+    } else {
+    console.log('No se encontró un objeto con ecl week_ID deseado.');
+    }
+
+    console.log("Strikes First");
 }
 
+preStartFunction();
 
 root.render( 
-        <>
-            <table className="table">
-                <thead className="estilo">
-                    <tr className="estilo">
-                        <HeaderComp datos={dataOUT.turnsOfDay} />
-                    </tr>
-                </thead>
-                <tbody>
+<>
+        <table className="table">
+            <thead className="estilo">
+                <tr className="estilo">
+                    <HeaderComp datos={dataOUT.turnsOfDay} />
+                </tr>
+            </thead>
+            <tbody>
 
-                    {dataIN.map((day) => (
-                        <RowComponent data={day} />
-                    ))} 
-                </tbody>
-            </table>
-        </> 
+                {turnoSemanalSel.map((day) => (
+                    <RowComponent data={day} />
+                ))}
+            </tbody>
+        </table>
+    </>
 );
