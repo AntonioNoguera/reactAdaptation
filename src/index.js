@@ -153,8 +153,7 @@ var dataIN = [
                     }
                 ]
             }
-        ],
-        "meanGrade": 100.21,
+        ], 
         "periodo_Semanal": "2023-11-09",
         "calificacion_Prom": 12.21,
         "week_ID":1
@@ -174,6 +173,9 @@ function preStartFunction(actualW=1){
     if (foundObject) { 
     turnoSemanalSel = foundObject.turnoSemanal;
     console.log(turnoSemanalSel); 
+    document.getElementById("weekLapse").innerHTML=foundObject.periodo_Semanal;
+    document.getElementById("weekGrade").innerHTML=foundObject.calificacion_Prom;
+    document.getElementById("semanaNumber").innerHTML=foundObject.week_ID;
     } else {
     console.log('No se encontró un objeto con ecl week_ID deseado.');
     }
