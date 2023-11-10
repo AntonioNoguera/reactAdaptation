@@ -10,6 +10,7 @@
     <meta name="description" content="Web site created using create-react-app" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <script src="../src/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
@@ -192,55 +193,244 @@
         }
         
     </style>
+
+    <link href="styles.css" rel="stylesheet">
     <title>React App</title>
 </head>
 
-<body>
-
-    <div class="row bg-secondary-subtle text-center my-0 py-0 fixed-top ">
-        <p class="fs-2 my-2">Verifica tu Menú</p>
-    </div> 
-
-    <div class="container "> 
-        <!-- Content -->
-        <div class="row" style=" margin-top: 5%;">
-            <!-- Header -->
-            <div class="col-12 my-3 p-0">
-                <div class="row">
-                    <div class="col-4 d-flex align-items-end justify-content-end">
-                        <p class="my-0" style="font-style: italic; font-size: 1.4em;">Periodo: <span id="weekLapse">23 Oct a 27 de Oct</span></p>
+<body>  
+    <div id="capturing">
+        <div> 
+            <!--Distribucion de Platillos-->
+            <div class="justify-content-center">
+                <!-- Titulo -->
+                <div class="subtitulo" style="margin-top: 80px;">Distribución de Platillos</div>
+    
+                <!-- Barras -->
+                <div class="mx-auto my-3" style="height: 30px;width: 80%;">
+                    <div class="progress-stacked" id="dishTypeBar" style="height: 100%;"> 
                     </div>
-                    
-                    <div class="col-4 d-flex align-items-center justify-content-center mx-auto p-0 " style="position: relative;">
-                        <button class="btnWeekL" style="position:absolute">⮜</button>
-                        <p class="my-0" style="font-size: 2.4em;position: static; ">
-                            Semana <span id="semanaNumber">1</span>
-                        </p>
-                        <button class="btnWeekR" style="position:absolute">⮞</button>
+                </div>
+    
+                <!-- Etiquetas -->
+                <div class="container  text-center mx-auto" style="width: 80%;">
+                    <div class="row align-items-center" id="typesTagBar"> 
                     </div>
-                    
-                    <div class="col-4 d-flex align-items-end justify-content-start">
-                        <p class="my-0" style="font-style: italic; font-size: 1.4em;">Calificación Promedio: <span id="weekGrade">12</span></p>
+                </div>
+            </div>
+    
+            <!-- Dsitribución de Fuertes -->
+            <div class="justify-content-center my-5">
+                <!-- Titulo -->
+                <div class="subtitulo">Distribución en los Platos Fuertes</div>
+    
+                <!-- Division de listas-->
+                <div class="row mx-auto" style="width: 80%;">
+                    <!-- Armados -->
+                    <div class="col-6" style="padding-right: 0 !important;">
+                        <!-- Titulo --> 
+                        <div class="d-flex justify-content-center">Armados</div> 
+    
+                        <!-- Barra -->
+                        <div class="mx-auto my-3" style="height: 30px; width: 80%">
+                            <div class="progress-stacked" style="height: 100%;">
+                                <div id="progBarAssTrue" class="progress" role="progressbar" aria-label="Segment one" aria-valuenow="15" aria-valuemin="0"
+                                    aria-valuemax="100" style="width: 30%">
+                                    <div  class="progress-bar progress-bar-striped progress-bar-animated"
+                                        style="background-color: #2b2b2b;"></div>
+                                </div>
+                                <div id="progBarAssFalse" class="progress" role="progressbar" aria-label="Segment w" aria-valuenow="15" aria-valuemin="0"
+                                    aria-valuemax="100" style="width: 70%">
+                                    <div  class="progress-bar progress-bar-striped progress-bar-animated"
+                                        style="background-color: gray;"></div>
+                                </div>
+                            </div>
+                        </div>  
+    
+                        <!--Tags-->
+                        <div class="container text-center mx-auto" style="width: 60%;">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <span class="color-cuadro" style="background-color: #2b2b2b;"></span><span id="tagAssamTrue">30</span>% Sí
+                                </div>
+                                <div class="col">
+                                    <span class="color-cuadro gris"></span><span id="tagAssamFalse">70</span>% No
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Temperaturas -->
+                    <div class="col-6" style="padding-right: 0 !important;">
+                        <!-- Titulo --> 
+                        <div class="d-flex justify-content-center">Temperatura</div> 
+                        
+                        <!-- Barra -->
+                        <div class="mx-auto my-3" style="height: 30px;width: 80%">
+                            <div class="progress-stacked" style="height: 100%;">
+                                <div class="progress" id="progBarTempFri" role="progressbar" aria-label="Segment one" aria-valuenow="15" aria-valuemin="0"
+                                    aria-valuemax="100" style="width: 30%">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                        style="background-color: cornflowerblue;"></div>
+                                </div>
+                                <div class="progress" id="progBarTempIrr" role="progressbar" aria-label="Segment w" aria-valuenow="15" aria-valuemin="0"
+                                    aria-valuemax="100" style="width: 40%">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                        style="background-color: coral;"></div>
+                                </div>
+                                <div class="progress" id="progBarTempCal" role="progressbar" aria-label="Segment w" aria-valuenow="15" aria-valuemin="0"
+                                    aria-valuemax="100" style="width: 30%">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                        style="background-color: crimson;"></div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!--Tags-->
+                        <div class="container text-center mx-auto" style="width: 80%;">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <span class="color-cuadro" style="background-color:cornflowerblue;"></span><span id="tagFri">30</span>% Frío
+                                </div>
+                                <div class="col">
+                                    <span class="color-cuadro" style="background-color:coral;"></span><span id="tagIrr">30</span>% Seco
+                                </div> 
+                                <div class="col">
+                                    <span class="color-cuadro" style="background-color:crimson;"></span><span id="tagCal">30</span>% Caliente
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Interfaz de Captura -->
+            <div class="container mb-4 rounded px-5 py-4 bg-secondary-subtle" style="width: 75%;">
+                <div class="row mb-4">
+                    <span class="text-center" style="font-size: 24px;">
+                        Ingresa los valores para tu Menú
+                    </span>
+                </div>
+    
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <div class="container">
+                            <div class="row align-items-center"> 
+                                    <p class="form-label" style="text-align: center;">Días de Servicio: </p> 
+                                    <input type="text" placeholder="ej: Lunes, Martes, Jueves, Viernes " class="form-control text-center" id="dServicio">
+                                    <span class="text-center" style="font-style: italic;font-size: small;">Días incluidos en el formato.</span> 
+                            </div>
+                        </div> 
+                        
+                    </div>
+                    <div class="col-6">
+                        <div class="container">
+                            <div class="row align-items-center"> 
+                                <p class="form-label" style="text-align: center;">Distribución de Platillos Por Turno: </p> 
+                                <input type="text" placeholder="ej: 0, 1, 3, 4"  class="form-control text-center" id="dPlatillo"> 
+                                <span class="text-center" style="font-style: italic;font-size: small;">Los valores pertenecen al numero del tipo de platillo.</span> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row mt-4 align-items-center">
+                    <div class="col-6">
+                        <div class="container">
+                            <div class="row align-items-center"> 
+                                    <p class="form-label" style="text-align: center;">Turnos por Día: </p> 
+                                    <input type="text" placeholder="ej: Desayuno, Comida, Comida, Cena" class="form-control text-center" id="tDia">
+                                    <span class="text-center" style="font-style: italic;font-size: small;">Debe de darse el tipo de platillo, de cada turno.</span> 
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="col-6 justify-content-center">
+                        <div class="container">
+                            <div class="row"> 
+                                <p class="form-label" style="text-align: center;">Permitir Temperaturas Duplicadas: </p> 
+                                <div id="tempDoble" class="justify-content-center row m-0">
+                                    <div class="col-6 mx-0 d-grid">
+                                        <input type="radio" class="btn btn-check btn-block" name="temp" id="tempTrue" autocomplete="off" checked>
+                                        <label class="btn btn-outline-success" for="tempTrue">Permitir Temperaturas Duplicadas</label>
+                                    </div>
+    
+                                    <div class="col-6 mx-0 d-grid">
+                                        <input type="radio" class="btn-check" name="temp" id="tempFalse" autocomplete="off">
+                                        <label class="btn btn-outline-danger" for="tempFalse">No permitir dos Similares</label>
+                                    </div>   
+                                </div>
+                                <span class="text-center" style="font-style: italic;font-size: small;">Habilitarán las temperaturas duplicadas.</span> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer Buttons -->
+                <div class="col-12 mt-5 px-2"> 
+                    <div class="row d-flex justify-content-center column-gap-3">
+                        <div class="col-5 d-grid m-0 p-0">
+                            <button type="button" class="col btn btn-abort" onclick="clearAll()">Limpiar</button>
+                        </div>
+                        <div class="col-5 d-grid m-0 p-0">
+                            <button type="button" class="col btn btn-continue" onclick="calligAPI()">Consultar</button>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Table -->
-            <div class="col-12 text-center justify-content-center d-flex" id="root"></div>
-            
-            <!-- Footer Buttons -->
-            <div class="col-12 px-4"> 
-                <div class="row d-flex justify-content-center gap-4">
-                    <div class="col-5 d-grid mr-1 p-0">
-                        <button type="button" class="col btn btn-abort">Limpiar</button>
-                    </div>
-                    <div class="col-6 d-grid ml-1 p-0">
-                        <button type="button" class="col btn btn-continue">Consultar</button>
-                    </div>
-                </div>
-            </div> 
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         </div>
     </div>
-</body>
 
+    <div id="displaying" style="display: none;">
+        <div class="row bg-secondary-subtle text-center my-0 py-0 fixed-top ">
+            <p class="fs-2 my-2">Verifica tu Menú</p>
+        </div> 
+
+        <div class="container "> 
+            <!-- Content -->
+            <div class="row" style=" margin-top: 5%;">
+                <!-- Header -->
+                <div class="col-12 my-3 p-0">
+                    <div class="row">
+                        <div class="col-4 d-flex align-items-end justify-content-end">
+                            <p class="my-0" style="font-style: italic; font-size: 1.4em;">Periodo: <span id="weekLapse">23 Oct a 27 de Oct</span></p>
+                        </div>
+                        
+                        <div class="col-4 d-flex align-items-center justify-content-center mx-auto p-0 " style="position: relative;">
+                            <button class="btnWeekL" style="position:absolute">⮜</button>
+                            <p class="my-0" style="font-size: 2.4em;position: static; ">
+                                Semana <span id="semanaNumber">1</span>
+                            </p>
+                            <button class="btnWeekR" style="position:absolute">⮞</button>
+                        </div>
+                        
+                        <div class="col-4 d-flex align-items-end justify-content-start">
+                            <p class="my-0" style="font-style: italic; font-size: 1.4em;">Calificación Promedio: <span id="weekGrade">12</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Table -->
+                <div class="col-12 text-center justify-content-center d-flex" id="root"></div>
+                
+                <!-- Footer Buttons -->
+                <div class="col-12 px-4"> 
+                    <div class="row d-flex justify-content-center gap-4">
+                        <div class="col-5 d-grid mr-1 p-0">
+                            <button type="button" class="col btn btn-abort" onclick="preStartFunction()">Limpiar</button>
+                        </div>
+                        <div class="col-6 d-grid ml-1 p-0">
+                            <button type="button" class="col btn btn-continue">Consultar</button>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="cap.js"></script>
 </html>
