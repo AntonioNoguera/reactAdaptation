@@ -10,7 +10,7 @@ window.clearAll = clearAll;
 window.calligAPI = calligAPI;
 window.clearBack = clearBack;
 
-const paleta = ["#ff6666", "#ffbd55", "#EDE532", "#9de24f", "#87cefa", "#A0C4FF", "#725fe2", "#FFC6FF", "#FFFFFC"]
+const paleta = ["#ff6666", "#ffbd55", "#EDE532", "#9de24f", "#A632ED", "#A0C4FF", "#725fe2", "#FFC6FF", "#FFFFFC"]
 var membersAbove = new Map();
 
 //INDEX CODE
@@ -279,7 +279,7 @@ function calligAPI() {
     var temp = document.getElementsByName("temp")[0].checked; 
     var objectMembers = [];
 
-    var i = 0;
+    var i = 0; 
     membersAbove.forEach((valor, clave) => {
         var jsonObj = {};
         jsonObj["id"] = clave;
@@ -288,6 +288,13 @@ function calligAPI() {
         objectMembers.push(jsonObj);
         i++;
     });
+    var jsonObj = {};
+        jsonObj["id"] = 0;
+        jsonObj["name"] = "mainDish";
+        jsonObj["recurrence"] = distribucion[i];
+        objectMembers.push(jsonObj);
+        i++;
+    
 
     console.log(objectMembers);
 
@@ -354,8 +361,8 @@ function preStartFunction(actualW = 1) {
     if (foundObject) {
         turnoSemanalSel = foundObject.turnoSemanal;
         console.log(turnoSemanalSel);
-        document.getElementById("weekLapse").innerHTML = foundObject.periodo_Semanal;
-        document.getElementById("weekGrade").innerHTML = foundObject.calificacion_Prom;
+        document.getElementById("weekLapse").innerHTML = foundObject.periodo_Semanal; 
+        document.getElementById("weekGrade").innerHTML = Math.round(foundObject.calificacion_Prom*100)/100;
         document.getElementById("semanaNumber").innerHTML = foundObject.week_ID;
     } else {
         console.log('No se encontró un objeto con ecl week_ID deseado.');

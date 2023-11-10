@@ -26,10 +26,10 @@ function TurnRow(props,turno,rowClass){
           <td className={`align-middle ${rowClass}`}>{
             item.turnEspecification.find(item => item.food === turno).members.map((member,index,array) => (
               index===array.length-1 ? (
-                <span key={member.name}>{member.name}</span>
+                <span key={member.name+index}>{member.name}</span>
                 
               ) : (
-                <span key={member.name}>{member.name} ║ </span>
+                <span key={member.name+index}>{member.name} ║ </span>
               )
               
             ))
@@ -45,10 +45,10 @@ function TurnRow(props,turno,rowClass){
       rows.push(<td className={`align-middle ${rowClass}`}>{
         item.turnEspecification.find(item => item.food === turno).members.map((member,index,array) => (
           index===array.length-1 ? (
-            <span key={member.name}>{member.name}</span>
+            <span key={member.name+index}>{member.name}</span>
             
           ) : (
-            <span key={member.name}>{member.name} ║ </span>
+            <span key={member.name+index}>{member.name} ║ </span>
           )
           
         ))
