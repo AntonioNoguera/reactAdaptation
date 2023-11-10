@@ -65,27 +65,37 @@
         .dia1,.dia2,.dia3,.dia4,.dia5{
             border: 0px solid white !important;
         }
-        .dia1, .dia1 td {
+        .dia0, .dia0 td {
             background-color: #FFFFA2 !important; 
             border-color: #FFFFA2 !important; 
         }
 
-        .dia2 {
+        .dia1 {
             background-color: #E3EC72 !important; 
             border-color: #E3EC72 !important; 
         }
 
-        .dia3 {
+        .dia2 {
             background-color: #BFBF00 !important; 
             border-color: #BFBF00 !important; 
         }
 
-        .dia4 {
+        .dia3 {
             background-color: #a3ac23 !important; 
             border-color: #a3ac23 !important; 
         }
 
+        .dia4 {
+            background-color: #899307 !important; 
+            border-color: #899307 !important;  
+        }
+
         .dia5 {
+            background-color: #899307 !important; 
+            border-color: #899307 !important;  
+        }
+
+        .dia6 {
             background-color: #899307 !important; 
             border-color: #899307 !important;  
         }
@@ -199,6 +209,10 @@
 </head>
 
 <body>  
+    <div class="row bg-secondary-subtle text-center my-0 py-0 fixed-top ">
+        <p class="fs-2 my-2"><span id="title">Crea tu menú</span></p>
+    </div> 
+
     <div id="capturing">
         <div> 
             <!--Distribucion de Platillos-->
@@ -385,9 +399,6 @@
     </div>
 
     <div id="displaying" style="display: none;">
-        <div class="row bg-secondary-subtle text-center my-0 py-0 fixed-top ">
-            <p class="fs-2 my-2">Verifica tu Menú</p>
-        </div> 
 
         <div class="container "> 
             <!-- Content -->
@@ -418,13 +429,10 @@
                 
                 <!-- Footer Buttons -->
                 <div class="col-12 px-4"> 
-                    <div class="row d-flex justify-content-center gap-4">
+                    <div class="row d-flex justify-content-center">
                         <div class="col-5 d-grid mr-1 p-0">
-                            <button type="button" class="col btn btn-abort" onclick="preStartFunction()">Limpiar</button>
-                        </div>
-                        <div class="col-6 d-grid ml-1 p-0">
-                            <button type="button" class="col btn btn-continue">Consultar</button>
-                        </div>
+                            <button type="button" class="col btn btn-abort" onclick="clearBack()">Regresar</button>
+                        </div> 
                     </div>
                 </div> 
             </div>

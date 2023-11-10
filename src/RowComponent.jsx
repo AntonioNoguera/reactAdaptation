@@ -24,8 +24,14 @@ function TurnRow(props,turno,rowClass){
       rows.push(<td className={`dayLabel p-2 align-middle columnDay${globalColor}`} rowSpan={item.turnEspecification.length}>{day}</td>);
       rows.push( 
           <td className={`align-middle ${rowClass}`}>{
-            item.turnEspecification.find(item => item.food === turno).members.map(member => (
-              <span>{member.name}</span>
+            item.turnEspecification.find(item => item.food === turno).members.map((member,index,array) => (
+              index===array.length-1 ? (
+                <span key={member.name}>{member.name}</span>
+                
+              ) : (
+                <span key={member.name}>{member.name} ║ </span>
+              )
+              
             ))
           }
             <span id={`${index},${index}`} className={`botonVolver`} onClick={() => handleSVGClick(`${props.data.day}-${turno}-${index}`)}>{svgPath}</span>
@@ -35,9 +41,16 @@ function TurnRow(props,turno,rowClass){
       globalColor++;
       firstStrike = false;
     }else{
+      console.log(item);
       rows.push(<td className={`align-middle ${rowClass}`}>{
-        item.turnEspecification.find(item => item.food === turno).members.map(member => (
-          <span>{member.name}</span>
+        item.turnEspecification.find(item => item.food === turno).members.map((member,index,array) => (
+          index===array.length-1 ? (
+            <span key={member.name}>{member.name}</span>
+            
+          ) : (
+            <span key={member.name}>{member.name} ║ </span>
+          )
+          
         ))
       }
         <span id={`${index},${index}`} className={`botonVolver`} onClick={() => handleSVGClick(`${props.data.day}-${turno}-${index}`)}>{svgPath}</span>
