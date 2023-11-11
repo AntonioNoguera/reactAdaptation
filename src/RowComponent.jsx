@@ -5,14 +5,12 @@ var day="Default";
 var globalColor=1; 
 
 function TurnRow(props,turno,rowClass){
-  var rows = []; 
-  console.log(turno);
+  var rows = [];  
 
   const handleSVGClick = (id) => {
     // Aquí puedes mostrar una alerta o realizar cualquier acción que desees
     alert(`${id}`);
-  };
-  console.log(props.data.day);
+  }; 
   props.data.food_time.forEach((item, index) => {  
     const svgPath = (
       <svg height="24" viewBox="0 -960 960 960" width="24" className="custom-span">
@@ -40,8 +38,7 @@ function TurnRow(props,turno,rowClass){
       
       globalColor++;
       firstStrike = false;
-    }else{
-      console.log(item);
+    }else{ 
       rows.push(<td className={`align-middle ${rowClass}`}>{
         item.turnEspecification.find(item => item.food === turno).members.map((member,index,array) => (
           index===array.length-1 ? (
@@ -67,7 +64,8 @@ function TurnRow(props,turno,rowClass){
   );
 }
 
-function RowComponent(props) {
+function RowComponent(props) { 
+  globalColor=props.index;
   var lines =[]; 
   day = props.data.day;
   var x = props.data.food_time[0].turnEspecification;

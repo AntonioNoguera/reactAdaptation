@@ -270,6 +270,7 @@ function clearBack(){
     document.getElementById("title").innerHTML = "Crea tu menú";
     document.getElementById("capturing").style.display = "block";
     document.getElementById("displaying").style.display = "none";
+    
 }
 
 function calligAPI() {
@@ -368,8 +369,6 @@ function preStartFunction(actualW = 1) {
         console.log('No se encontró un objeto con ecl week_ID deseado.');
     }
 
-    console.log("Strikes First");
-
     root.render(
         <>
             <table className="table">
@@ -381,10 +380,11 @@ function preStartFunction(actualW = 1) {
                 </thead>
                 <tbody>
 
-                    {turnoSemanalSel.map((day) => (
-                        <RowComponent data={day} />
+                    {turnoSemanalSel.map((day, index) => (
+                        <RowComponent data={day} index={index+1} />
                     ))}
-                </tbody>
+                </tbody> 
+                
             </table>
         </>
     );
